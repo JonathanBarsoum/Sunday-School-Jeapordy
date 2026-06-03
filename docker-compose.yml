@@ -1,0 +1,10 @@
+services:
+  db:
+    image: postgres:16
+    environment:
+      POSTGRES_USER: jeopardy
+      POSTGRES_PASSWORD: jeopardy
+      POSTGRES_DB: jeopardy
+    ports:
+      - "5432:5432"
+
