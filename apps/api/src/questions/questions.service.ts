@@ -7,7 +7,7 @@ export class QuestionsService {
   constructor(private readonly prisma: PrismaService) {}
 
   async create(data: CreateQuestionDto) {
-    const teacher = await this.prisma.teacher.upsert({
+    const user = await this.prisma.user.upsert({
       where: {
         email: data.teacherEmail,
       },
@@ -26,10 +26,10 @@ export class QuestionsService {
         question: data.question,
         answer: data.answer,
         pointValue: data.pointValue,
-        teacherId: teacher.id,
+        createdById: user.id,
       },
       include: {
-        teacher: true,
+        createdBy: true,
       },
     });
   }
@@ -37,7 +37,7 @@ export class QuestionsService {
   async findAll() {
     return this.prisma.question.findMany({
       include: {
-        teacher: true,
+        createdBy: true,
       },
       orderBy: {
         createdAt: 'desc',

@@ -11,6 +11,10 @@ API_PID=$!
 pnpm --dir apps/web dev &
 WEB_PID=$!
 
+echo "opening prisma studio"
+pnpm --dir apps/api prisma studio &
+API_PID=$!
+
 echo ""
 echo "API: http://localhost:3000"
 echo "Web: http://localhost:5173"

@@ -1,0 +1,120 @@
+.home-screen {
+  min-height: 100vh;
+  position: relative;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at center, rgba(59, 130, 246, 0.45), transparent 35%),
+    linear-gradient(135deg, #020617, #172554 45%, #1e1b4b);
+  color: white;
+}
+
+.home-screen::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(circle, black, transparent 75%);
+}
+
+.auth-buttons {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  display: flex;
+  gap: 0.75rem;
+  z-index: 1;
+}
+
+.auth-button {
+  padding: 0.7rem 1rem;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  border-radius: 999px;
+  color: white;
+  text-decoration: none;
+  font-weight: 800;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.auth-button-primary {
+  background: #facc15;
+  border-color: #facc15;
+  color: #111827;
+}
+
+.home-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+}
+
+.jeopardy-logo {
+  width: 100%;
+  text-align: center;
+
+  margin: 0 0 3rem;
+  font-size: clamp(4rem, 14vw, 9rem);
+  line-height: 0.9;
+  letter-spacing: 0.04em;
+  color: #facc15;
+  margin-bottom: 4rem;
+  text-shadow:
+    0 5px 0 #b45309,
+    0 12px 24px rgba(0, 0, 0, 0.55);
+}
+
+.main-menu {
+  display: grid;
+  gap: 2rem;
+  width: 100%;
+}
+
+.menu-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+  height: 90px;
+
+  border-radius: 12px;
+  border: 4px solid #facc15;
+
+  background: linear-gradient(
+    180deg,
+    #2563eb,
+    #1d4ed8
+  );
+
+  color: white;
+  text-decoration: none;
+
+  font-size: 2rem;
+  font-weight: 900;
+
+  box-shadow:
+    0 8px 0 #1e3a8a,
+    0 16px 30px rgba(0, 0, 0, 0.4);
+
+  transition: all 0.15s ease;
+}
+
+.menu-button:hover {
+  transform: translateY(-2px);
+}
+
+.menu-button:active {
+  transform: translateY(6px);
+  box-shadow:
+    0 2px 0 #1e3a8a,
+    0 8px 15px rgba(0, 0, 0, 0.35);
+}
