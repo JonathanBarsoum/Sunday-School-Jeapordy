@@ -61,3 +61,14 @@
   color: #facc15;
   font-weight: 800;
 }
+
+.home-button {
+  display: block;
+  padding: 1rem;
+  border-radius: 12px;
+  background: #2563eb;
+  color: white;
+  text-decoration: none;
+  text-align: center;
+  font-weight: bold;
+}

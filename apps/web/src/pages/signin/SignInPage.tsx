@@ -12,7 +12,33 @@ function SignInPage() {
   async function handleSubmit(event: FormEvent) {
     event.preventDefault();
 
-    setMessage("Sign in endpoint coming next.");
+    setMessage("");
+    setIsSubmitting(true);
+
+    const response = await fetch("http://localhost:3000/auth/signin", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ email, password }),
+    });
+
+    const data = await response.json();
+
+    if (!response.ok) {
+      if (Array.isArray(data.message)) {
+        setMessage(data.message.join(", "));
+      } else {
+        setMessage(data.message ?? "Sign in failed");
+      }
+
+      setIsSubmitting(false);
+      return;
+    }
+
+    setMessage(`Welcome back, ${data.name}!`);
+    setEmail("");
+    setPassword("");
     setIsSubmitting(false);
   }
 
@@ -40,6 +66,10 @@ function SignInPage() {
           <button type="submit" disabled={isSubmitting}>
             {isSubmitting ? "Signing in..." : "Sign In"}
           </button>
+
+          <Link to="/" className="home-button">
+            Home
+          </Link>
         </form>
 
         {message && <p className="signin-message">{message}</p>}
