@@ -14,7 +14,7 @@ type Question = {
   answer: string;
   pointValue: number;
   status: string;
-  teacher: Teacher;
+  createdBy: User;
 };
 
 function QuestionsPage() {
@@ -148,7 +148,7 @@ function QuestionsPage() {
               <strong>Answer:</strong> {question.answer}
             </p>
             <p>
-              <strong>Teacher:</strong> {question.teacher.name}
+              <strong>Teacher:</strong> {question.createdBy.name}
             </p>
           </div>
         ))}
