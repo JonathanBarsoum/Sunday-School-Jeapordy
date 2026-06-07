@@ -17,6 +17,7 @@ function SignInPage() {
 
     const response = await fetch("http://localhost:3000/auth/signin", {
       method: "POST",
+      credentials: "include",
       headers: {
         "Content-Type": "application/json",
       },
@@ -40,6 +41,8 @@ function SignInPage() {
     setEmail("");
     setPassword("");
     setIsSubmitting(false);
+
+    window.location.href = "/";
   }
 
   return (
